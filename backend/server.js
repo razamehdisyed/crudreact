@@ -3,6 +3,7 @@ const cors = require("cors")
 const mysql = require("mysql")
 
 const app = express()
+app.use(express.json())
 app.use(cors())
 
 const db = mysql.createConnection({
@@ -17,6 +18,17 @@ app.get("/",(req, res)=>{
         if(err) return res.json("Error")
         return res.json(data)
      })
+})
+app.post("/create", (req, res)=> {
+    const sql = "INSERT INTO users ('name', 'email') VALUES(?)"
+    const values = [
+        req.body.name,
+        req.body.email
+    ]
+    db.query(sql, [values], (err, data)=>{
+        if(err) return res.json("Error")
+        return res.json(data)
+    })
 })
 
 app.listen(8081, ()=> {
