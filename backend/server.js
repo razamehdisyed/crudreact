@@ -20,7 +20,7 @@ app.get("/",(req, res)=>{
      })
 })
 app.post("/create", (req, res)=> {
-    const sql = "INSERT INTO users ('name', 'email') VALUES(?)"
+    const sql = "INSERT INTO users (`name`, `email`) VALUES(?)"
     const values = [
         req.body.name,
         req.body.email

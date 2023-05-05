@@ -30,8 +30,8 @@ const Student = () => {
                             <td>{data.name}</td>
                             <td>{data.email}</td>
                             <td>
-                                <button className='btn btn-primary'>Update</button>
-                                <button className='btn btn-danger ms-2'>Delete</button>
+                                <Link to="/update/${data.id}" className='btn btn-primary'>Update</Link>
+                                <Link to="/" className='btn btn-danger ms-2'>Delete</Link>
 
                             </td>
                            </tr>     
