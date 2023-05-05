@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const mysql = require("mysql")
 
+
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -26,6 +27,19 @@ app.post("/create", (req, res)=> {
         req.body.email
     ]
     db.query(sql, [values], (err, data)=>{
+        if(err) return res.json("Error")
+        return res.json(data)
+    })
+})
+app.put('/update/:id', (req, res)=> {
+    const sql = "UPDATE users SET `name` = ?, `email` = ? WHERE id = ?"
+    const values = [
+        req.body.name,
+        req.body.email
+    ]
+        const id = req.params.id
+        
+    db.query(sql, [...values,id], (err, data)=>{
         if(err) return res.json("Error")
         return res.json(data)
     })

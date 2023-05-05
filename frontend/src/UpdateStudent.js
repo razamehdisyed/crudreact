@@ -10,7 +10,7 @@ const UpdateStudent = () => {
 
 const handleSubmit = (e) => {
     e.preventDefault()
-    axios.putt("//localhost:8081/update"+id, {name, email})
+    axios.put('http://localhost:8081/update/'+id, {name, email})
     .then(res => {
         console.log(res)
         navigate('/')
