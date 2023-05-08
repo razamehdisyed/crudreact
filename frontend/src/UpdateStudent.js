@@ -1,11 +1,11 @@
 import axios from 'axios'
 import React, {useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import {useNavigate, useParams } from 'react-router-dom'
 
 const UpdateStudent = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const {id} = useParams
+    const {id} = useParams()
     const navigate = useNavigate()
 
 const handleSubmit = (e) => {

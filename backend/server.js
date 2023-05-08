@@ -32,12 +32,13 @@ app.post("/create", (req, res)=> {
     })
 })
 app.put('/update/:id', (req, res)=> {
-    const sql = "UPDATE users SET `name` = ?, `email` = ? WHERE id = ?"
+    
+    const sql = 'UPDATE users SET `name` = ?, `email` = ? WHERE id = ?'
+    const id = req.params.id
     const values = [
         req.body.name,
         req.body.email
     ]
-        const id = req.params.id
         
     db.query(sql, [...values,id], (err, data)=>{
         if(err) return res.json("Error")
