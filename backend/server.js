@@ -31,6 +31,14 @@ app.post("/create", (req, res)=> {
         return res.json(data)
     })
 })
+app.get("/update/:id",(req, res)=>{
+    const id = req.params.id
+    const sql = "SELECT * from users WHERE id=?"
+    db.query(sql, [id],(err,data)=>{
+        if(err) return res.json("Error")
+        return res.json(data)
+     })
+})
 app.put('/update/:id', (req, res)=> {
     
     const sql = 'UPDATE users SET `name` = ?, `email` = ? WHERE id = ?'

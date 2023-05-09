@@ -22,7 +22,7 @@ const handleSubmit = (e) => {
                 <h2>Add Student</h2>
                 <div className='mb-2'>
                     <label htmlFor=''>Name</label>
-                    <input type='text' placeholder='Enter your name' className='form-control'
+                    <input type='text' placeholder='Enter your name' className='form-control' autoFocus
                     onChange={e=>setName(e.target.value)}
                     />
                 </div>
